@@ -1,0 +1,90 @@
+POST http://localhost:5000/signup
+Content-Type: application/json
+
+{
+	"first_name":"Priya",
+	"last_name":"Sahastrabudhhe",
+	"email":"Priya@mailinator.com",
+	"mobile":"+912334567980",
+	"password":"iamthehottest"   
+}
+
+###
+
+POST http://localhost:5000/signup
+Content-Type: application/json
+
+{
+	"first_name":"Viru",
+	"last_name":"Sahastrabudhhe",
+	"email":"virus@mailinator.com",
+	"mobile":"+919876543210",
+	"password":"iamthebest",
+	"roleId":"6308b00249edd535fef6f341"   
+}
+
+###
+POST http://localhost:5000/signin
+Content-Type: application/json
+
+{
+    "email": "virus@mailinator.com",
+    "password": "iamthebest"
+}
+
+###
+GET http://localhost:5000/user
+
+###
+GET http://localhost:5000/user/6308b31438c5dceb87808de8
+
+###
+POST http://localhost:5000/role
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "scopes": [
+        "user-get",
+		"user-create",
+		"student-get",
+		"student-create",
+		"role-get",
+		"school-get",
+		"school-create",
+		"school-students"
+    ]
+}
+
+###
+GET http://localhost:5000/role
+
+###
+POST http://localhost:5000/school
+Content-Type: application/json
+
+{
+    "name": "All India Institute Of Medical Science",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "country": "India"
+}
+
+###
+GET http://localhost:5000/school
+
+###
+POST http://localhost:5000/student
+Content-Type: application/json
+
+{
+    "name":"Priya Sahastrabudhhe",
+    "userId":"6308e24b997f35e25c7ff97b",
+    "schoolId":"6308e1f4997f35e25c7ff978"
+}
+
+###
+GET http://localhost:5000/student
+
+###
+GET http://localhost:5000/school/students
