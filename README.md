@@ -22,31 +22,31 @@ This is the crux of the platform:
 ## API Endpoints
 
 ### User
-#### <span style="color: #FFA500">POST</span> Sign up
+#### ```diff ! POST ``` Sign up
 `https://edtechmanagement.herokuapp.com/user/signup`
-#### <span style="color: #FFA500">POST</span> Sign in
+#### ```diff ! POST ``` Sign in
 `https://edtechmanagement.herokuapp.com/user/signin`
-#### <span style="color: #00FF00">GET</span> Get All
+#### ```diff + GET ``` Get All
 `https://edtechmanagement.herokuapp.com/user`
-#### <span style="color: #00FF00">GET</span> Get Single
+#### ```diff + GET ``` Get Single
 `https://edtechmanagement.herokuapp.com/user/:id`
 
 ### Role
-#### <span style="color: #FFA500">POST</span> Create
+#### ```diff ! POST ``` Create
 `https://edtechmanagement.herokuapp.com/role`
-#### <span style="color: #00FF00">GET</span> Get All
+#### ```diff + GET ``` Get All
 `https://edtechmanagement.herokuapp.com/role`
 
 ### Student
-#### <span style="color: #FFA500">POST</span> Create
+#### ```diff ! POST ``` Create
 `https://edtechmanagement.herokuapp.com/student`
-#### <span style="color: #00FF00">GET</span> Get All
+#### ```diff + GET ``` Get All
 `https://edtechmanagement.herokuapp.com/student`
 
 ### School
-#### <span style="color: #FFA500">POST</span> Create
+#### ```diff ! POST ``` Create
 `https://edtechmanagement.herokuapp.com/school`
-#### <span style="color: #00FF00">GET</span> Get All
+#### ```diff + GET ``` Get All
 `https://edtechmanagement.herokuapp.com/school`
-#### <span style="color: #00FF00">GET</span> Get Students
+#### ```diff + GET ``` Get Students
 `https://edtechmanagement.herokuapp.com/school/students`
