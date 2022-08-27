@@ -21,7 +21,7 @@ app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
-app.post('/signup',body('email').isEmail().normalizeEmail(),body('password').isLength({ min: 8 }),async (req,res)=>{
+app.post('/user/signup',body('email').isEmail().normalizeEmail(),body('password').isLength({ min: 8 }),async (req,res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -55,7 +55,7 @@ app.post('/signup',body('email').isEmail().normalizeEmail(),body('password').isL
         res.status(500).json({ errors: "Something is wrong I can feel it " });
     }
 });
-app.post('/signin',body('email').isEmail(),body('password').isLength({ min: 8 }),async (req,res)=>{
+app.post('/user/signin',body('email').isEmail(),body('password').isLength({ min: 8 }),async (req,res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
