@@ -4,7 +4,7 @@ In this platform, Schools are registered, along with their Students.
 ## About
 This is a Scope-based Authorization system ,
 - where any Role (ex: `Admin`, `Student`, `Principal`)
-- must have a scope (eg: `school-create`, `user-![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) GET`) with them
+- must have a scope (eg: `school-create`, `user-GET`) with them
 - to perform any actions on the resources (eg: `User`, `School`)
 
 It basically has these models:
@@ -22,31 +22,31 @@ This is the crux of the platform:
 ## API Endpoints
 
 ### User
-#### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) POST Sign up
-`(https://edtechmanagement.herokuapp.com/user/signup)[https://edtechmanagement.herokuapp.com/user/signup]`
-#### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) POST Sign in
-`(https://edtechmanagement.herokuapp.com/user/signin)[https://edtechmanagement.herokuapp.com/user/signin]`
-#### ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) GET GET All
-`(https://edtechmanagement.herokuapp.com/user)[https://edtechmanagement.herokuapp.com/user]`
-#### ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) GET GET Single
-`[https://edtechmanagement.herokuapp.com/user/:id](https://edtechmanagement.herokuapp.com/user/:id)`
+#### POST Sign up
+`https://edtechmanagement.herokuapp.com/user/signup`
+#### POST Sign in
+`https://edtechmanagement.herokuapp.com/user/signin`
+#### GET GET All
+`https://edtechmanagement.herokuapp.com/user`
+#### GET GET Single
+`https://edtechmanagement.herokuapp.com/user/:id`
 
 ### Role
-#### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) POST Create
-`(https://edtechmanagement.herokuapp.com/role)[https://edtechmanagement.herokuapp.com/role]`
-#### ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) GET GET All
-`(https://edtechmanagement.herokuapp.com/role)[https://edtechmanagement.herokuapp.com/role]`
+#### POST Create
+`https://edtechmanagement.herokuapp.com/role`
+#### GET GET All
+`https://edtechmanagement.herokuapp.com/role`
 
 ### Student
-#### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) POST Create
-`(https://edtechmanagement.herokuapp.com/student)[https://edtechmanagement.herokuapp.com/student]`
-#### ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) GET GET All
-`(https://edtechmanagement.herokuapp.com/student)[https://edtechmanagement.herokuapp.com/student]`
+#### POST Create
+`https://edtechmanagement.herokuapp.com/student`
+#### GET GET All
+`https://edtechmanagement.herokuapp.com/student`
 
 ### School
-#### ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) POST Create
-`(https://edtechmanagement.herokuapp.com/school)[https://edtechmanagement.herokuapp.com/school]`
-#### ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) GET GET All
-`(https://edtechmanagement.herokuapp.com/school)[https://edtechmanagement.herokuapp.com/school]`
-#### ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) GET GET Students
-`(https://edtechmanagement.herokuapp.com/school/students)[https://edtechmanagement.herokuapp.com/school]`
+#### POST Create
+`https://edtechmanagement.herokuapp.com/school`
+#### GET GET All
+`https://edtechmanagement.herokuapp.com/school`
+#### GET GET Students
+`https://edtechmanagement.herokuapp.com/school/students`
