@@ -10,7 +10,19 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:5000/signup
+Content-Type: application/json
 
+{
+	"first_name":"Atul",
+	"last_name":"Tiwari",
+	"email":"atul@mailinator.com",
+	"mobile":"+919876543100",
+	"password":"iamthebest",
+	"roleId":"6308af1349edd535fef6f33e"   
+}
+
+###
 POST http://localhost:5000/signup
 Content-Type: application/json
 
@@ -31,12 +43,20 @@ Content-Type: application/json
     "email": "virus@mailinator.com",
     "password": "iamthebest"
 }
+###
+POST http://localhost:5000/signin
+Content-Type: application/json
+
+{
+    "email": "priya@mailinator.com",
+    "password": "iamthehottest"
+}
 
 ###
 GET http://localhost:5000/user
 
 ###
-GET http://localhost:5000/user/6308b31438c5dceb87808de8
+GET http://localhost:5000/user/6308b31438c5dceb87808de9
 
 ###
 POST http://localhost:5000/role

@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("./config/database").connect();
 const express=require('express');
+const cookieParser=require('cookie-parser');
 const { body, validationResult } = require('express-validator');
 const app=express();
 const cors = require("cors");
@@ -13,8 +14,11 @@ const User=require('./model/user');
 const Role=require('./model/role');
 const School=require('./model/school');
 const Student=require('./model/student');
+var Auth=require('./middleware/auth');
+var auth=new Auth();
 
 app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 
 app.post('/signup',body('email').isEmail().normalizeEmail(),body('password').isLength({ min: 8 }),async (req,res)=>{
@@ -84,6 +88,7 @@ app.post('/signin',body('email').isEmail(),body('password').isLength({ min: 8 })
                     token
                 }
               };
+            res.cookie("token",token);
             return res.status(200).json(give);
           }
           return res.status(400).json({errors:"Invalid Credentials"});
@@ -93,7 +98,7 @@ app.post('/signin',body('email').isEmail(),body('password').isLength({ min: 8 })
         res.status(500).json({ errors: "Something is wrong I can feel it " });
     }
 });
-app.get('/user/:id',async (req,res)=>{
+app.get('/user/:id',auth.userGet,async (req,res)=>{
     try {
         let users=await User.findOne({_id:req.params.id},{password:0});
         let give={
@@ -109,7 +114,7 @@ app.get('/user/:id',async (req,res)=>{
         res.status(500).json({ errors: "Something is wrong I can feel it " });
     }
 });
-app.get('/user',async (req,res)=>{
+app.get('/user',auth.userGet,async (req,res)=>{
     try {
         let users=await User.find({},{password:0});
         let give={
@@ -148,7 +153,7 @@ app.post('/role',async (req,res)=>{
         res.status(500).json({ errors: "Something is wrong I can feel it " });
     }
 });
-app.get('/role',async (req,res)=>{
+app.get('/role',auth.roleGet,async (req,res)=>{
     try {
         let roles=await Role.find();
         let give={
@@ -165,7 +170,7 @@ app.get('/role',async (req,res)=>{
     }
 });
 
-app.post('/school',async (req,res)=>{
+app.post('/school',auth.schoolCreate,async (req,res)=>{
     try {
         const {name,city,state,country}=req.body;
         let school=await School.create({
@@ -189,7 +194,7 @@ app.post('/school',async (req,res)=>{
         res.status(500).json({ errors: "Something is wrong I can feel it " });
     }
 });
-app.get('/school',async (req,res)=>{
+app.get('/school',auth.schoolGet,async (req,res)=>{
     try {
         let schools=await School.find();
         let give={
@@ -206,7 +211,7 @@ app.get('/school',async (req,res)=>{
     }
 });
 
-app.post('/student',async (req,res)=>{
+app.post('/student',auth.studentCreate,async (req,res)=>{
     try {
         const {name,userId,schoolId}=req.body;
         let student=await Student.create({
@@ -229,7 +234,7 @@ app.post('/student',async (req,res)=>{
         res.status(500).json({ errors: "Something is wrong I can feel it " });
     }
 });
-app.get('/student',async (req,res)=>{
+app.get('/student',auth.studentGet,async (req,res)=>{
     try {
         let students=await Student.find();
         let give={
@@ -246,7 +251,7 @@ app.get('/student',async (req,res)=>{
     }
 });
 
-app.get('/school/students',async (req,res)=> {
+app.get('/school/students',auth.schoolStudents,async (req,res)=> {
     try {
         let schools=await School.aggregate([{
             $lookup: {
@@ -256,11 +261,6 @@ app.get('/school/students',async (req,res)=> {
                 as:"students"
             }
         }]);
-        // let schools=await School.find();
-        // schools.map(async (s)=> {
-        //     let students=await Student.find({schoolId:s._id});
-        //     s["students"]=students;
-        // });
         let give={
             status:true,
             content:{
@@ -276,5 +276,9 @@ app.get('/school/students',async (req,res)=> {
 });
 
 
-app.get('*',(req,res)=>res.send("<h3>EdTech-Management</h3><br/><br/>Bhai kya kar raha hai tu?"));
+app.get('*',(req,res)=>{
+    res.send(
+        `<center><h3>EdTech-Management</h3></center><br/><br/>Bhai kya kar raha hai tu?`
+    );
+});
 server.listen(PORT,()=>console.log(`Server running on ${PORT} port`));
