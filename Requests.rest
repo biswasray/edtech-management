@@ -1,4 +1,4 @@
-POST http://localhost:5000/user/signup
+POST https://edtechmanagement.herokuapp.com/user/signup
 Content-Type: application/json
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/user/signup
+POST https://edtechmanagement.herokuapp.com/user/signup
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/user/signup
+POST https://edtechmanagement.herokuapp.com/user/signup
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/user/signin
+POST https://edtechmanagement.herokuapp.com/user/signin
 Content-Type: application/json
 
 {
@@ -44,7 +44,7 @@ Content-Type: application/json
     "password": "iamthebest"
 }
 ###
-POST http://localhost:5000/user/signin
+POST https://edtechmanagement.herokuapp.com/user/signin
 Content-Type: application/json
 
 {
@@ -53,13 +53,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/user
+GET https://edtechmanagement.herokuapp.com/user
 
 ###
-GET http://localhost:5000/user/6308b31438c5dceb87808de9
+GET https://edtechmanagement.herokuapp.com/user/6308b31438c5dceb87808de9
 
 ###
-POST http://localhost:5000/role
+POST https://edtechmanagement.herokuapp.com/role
 Content-Type: application/json
 
 {
@@ -77,10 +77,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/role
+GET https://edtechmanagement.herokuapp.com/role
 
 ###
-POST http://localhost:5000/school
+POST https://edtechmanagement.herokuapp.com/school
 Content-Type: application/json
 
 {
@@ -91,10 +91,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/school
+GET https://edtechmanagement.herokuapp.com/school
 
 ###
-POST http://localhost:5000/student
+POST https://edtechmanagement.herokuapp.com/student
 Content-Type: application/json
 
 {
@@ -104,7 +104,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/student
+GET https://edtechmanagement.herokuapp.com/student
 
 ###
-GET http://localhost:5000/school/students
+GET https://edtechmanagement.herokuapp.com/school/students
